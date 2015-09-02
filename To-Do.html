@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To-Do App</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="todoctrl" class="container" style="padding-top:25px;" >
+		<form ng-submit="todoAdd()">
+			<input type="text" ng-model="todoInput" size="50" placeholder="Enter your message here" ng-click="disableremove()">
+			<input type="submit" value="Add New">
+		</form>
+		<br/>
+		<div class="row">
+			<button class="btn btn-info" ng-click="selectall()">
+				Select All
+			</button>
+			<button class="btn btn-warning" ng-click="deselectall()">
+				Deselect All
+			</button>
+		</div>
+		<br/>
+		<!-- display notes here -->
+		<div ng-repeat="x in todoList">
+			<input type="checkbox" ng-model="x.done">
+			
+			<span ng-bind="x.todotext"></span>
+		</div>
+		<br>
+		<!-- button to delete selected notes -->
+		<div class="col-sm-4">
+			<button class="btn btn-danger" type="submit" ng-click="remove()">
+				<span class="glyphicon glyphicon-trash">
+					Remove!
+				</span>
+			</button>
+			<div ng-hide="removeclicked">
+				Removed successfully!
+			</div>
+		</div>
+		<div class="row">
+			
+			<p>
+				Current To-Do list length is: 
+				<span ng-bind="notesize()"></span>
+				
+			</p>
+		</div>
+
+<script type="text/javascript">
+	var app = angular.module('myapp', []);
+			app.controller('todoctrl', function($scope){
+			$scope.todoList = [
+				{todotext:'praveen laundry', done:false}
+			];
+			$scope.todoAdd = function(){
+				$scope.todoList.push({todotext:$scope.todoInput,done:false});
+				$scope.todoInput="";
+			};
+			$scope.removeclicked=true;
+			$scope.selectednotesList=[];
+			$scope.remove = function(){
+				var oldList = $scope.todoList;
+				$scope.todoList=[];
+				for(var i=0;i<oldList.length;i++){
+					if(oldList[i].done.length>0)
+						alert('selected more than 1 note!');
+				}
+
+				angular.forEach(oldList, function(x){
+					if(!x.done){
+						$scope.todoList.push(x);
+						
+					}
+					 if(x.done){
+						$scope.selectednotesList.push(x);
+					}
+				});
+
+			// angular.forEach(oldList, function(x){
+			// 		if(!x.done)
+			// 			$scope.todoList.push(x);
+			// 	});
+
+
+				$scope.removeclicked=false;
+				alert('deleted '+ (oldList.length - $scope.selectednotesList.length) +' Notes');
+
+			};
+			$scope.selectall= function(){
+				var newList = $scope.todoList;
+					for(var i=0;i<newList.length;i++){
+						newList[i].done=true;
+					}
+				// $scope.todoList=[];
+				// angular.forEach(newList, function(x){
+				// 	$scope.todoList[done]=true;
+				// 	// .push(x.todotext=$scope.todoInput ,x.done=true);
+				// });
+			};
+			$scope.deselectall= function(){
+				var newList = $scope.todoList;
+					for(var i=0;i<newList.length;i++){
+						newList[i].done=false;
+					}
+			}
+			$scope.notesize = function(){
+				var notelength = $scope.todoList.length;
+				return notelength;
+			}
+			$scope.disableremove = function(){
+				$scope.removeclicked= true;
+			}
+
+		});
+</script>
+</body>
+</html>

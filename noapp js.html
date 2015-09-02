@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>No App</title>
+	<Script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+</head>
+<body>
+<!-- <div ng-app="" ng-init="a=10;b=20">
+	Onload of the window: {{a*b}}
+	Getting basic result of an expression: {{5*25}}
+
+	<br/>
+	<input type="number" ng-model="a" placeholder="10"/>
+	<input type="number" ng-model="b" placeholder="10"/>
+
+	<br/>
+	Entered Values:
+	a <span ng-bind="a"></span>; b <span ng-bind="b"></span>
+	<br/>
+		Result: {{a * b}}
+
+ </div> -->
+
+<!-- <div ng-app="arrayapp" ng-init="person={first:'praveen',last:'makam'}">
+		Now: {{person.first}}, {{person.last}}
+		a:<input type="text" ng-model="first">
+		b:<input type="text" ng-model="last">
+		<br/>
+		Let the name change: {{first}} {{last}}
+		<br/>
+		Binding result: <span ng-bind="person.first"></span> + <span ng-bind="person.last"></span>
+		<br/>
+</div> -->
+<!-- 
+<div ng-app="" ng-init="array=[1,2,3,4,5,6,7,8,98]">
+	<input type="number">
+	<ul>
+		<li ng-repeat="x in array">
+				{{x}}
+		</li>
+	</ul>
+</div>
+ -->
+<!-- 
+<div ng-app="" ng-init="array=[1,2,3,4]">
+	<input type="number" ng-model="a">
+	Result: {{array[a]}}
+</div> -->
+
+
+
+<!-- 
+<div ng-app="" ng-init="array=[1,2,3,4,5]">
+	<input type="number" ng-model="a">
+	
+	Array result : {{array[a]}}
+
+	Result: <span ng-bind="array[a+1]"></span>
+</div> -->
+
+<!-- 
+<div ng-app="" ng-init="arrays=[
+	p1={name:'f1',number:1},
+	p2={name:'f2',number:2},
+	p3={name:'f3',number:3}
+	]">
+
+	<ul>
+		<li ng-repeat="x in arrays">
+				{{x.name}} 
+				{{x.number}}
+		</li>
+	</ul>
+	
+</div>
+ -->
+<!--  <div ng-app="app1" ng-controller="app1ctrl">
+ 		first: <input type="text" ng-model="first">
+ 		last: <input type="text" ng-model="last">
+
+ 		Full name: {{first +','+ last}}
+ </div> -->
+
+<!-- <div ng-app="app1" ng-controller="app1ctrl">
+		<input type="text" ng-model="first">
+		<input type="text" ng-model="last">
+		<br/>
+		Your full name: {{fullname()}}
+		<br/>
+		Number Example:
+		<input type="number" ng-model="a">
+		<input type="number" ng-model="b">
+		Multiply: {{multiply()}}
+</div>
+ -->
+
+<!-- <div ng-app="newapp" ng-controller="arrayctrl">
+		Name: <input type="text" ng-model="name">
+		Country: <input type="text" ng-model="country">
+		<br/>
+		Added values: {{name + ' ' + country}}
+		<br/>
+		Search names: <input type="text" ng-model="res">
+		<br/>
+		<ul>
+			<li ng-repeat="x in persons | filter:res | orderBy:'country'">
+					{{ x.name + ' from ' + x.country  }}
+			</li>
+		</ul>
+</div>
+ -->
+<!-- <div ng-app="httpapp" ng-controller="httpcontroller">
+	<input type="text" ng-model="Name" >
+	<ul>
+		<li ng-repeat="x in urlresult | orderBy:'Country'  ">
+			{{x.Name + '  ' + x.Country}}
+		</li>
+	</ul>
+	<table>
+		<tr >
+			<td>Sl.No</td>
+			<td>Name</td>
+			<td>Country</td>
+		</tr>
+		<tr ng-repeat="x in urlresult | orderBy: 'Country' ">
+			<td>{{ $index + 1}}</td>
+			<td>{{x.Name | uppercase }}</td>
+			<td>{{x.Country}}</td>
+		</tr>
+	</table>
+</div> -->
+<!-- <div ng-app="httpapp" ng-controller="httpcontroller">
+		<table>
+			<tr>
+				<td></td>
+				<td>Name</td>
+				<td>Country</td>
+			</tr>
+			<tr ng-repeat="x in urlresult">
+				<td>{{ $index +1}}</td>
+				<td ng-if="$odd" style="background-color:purple">{{x.Name }}</td>
+				<td ng-if="$even">{{x.Name}}</td>
+				<td ng-if="$odd">{{x.Country}}</td>
+				<td ng-if="$even" style="background-color:orange">{{x.Country}}</td>
+			</tr>
+		</table>
+</div> -->
+<!-- 
+<div ng-app="" >
+	<button ng-disabled="checkstate"> Button checkup!</button>
+	<button ng-disabled="a">button1</button>
+	<button ng-disabled="a">button1</button>
+	<button ng-disabled="checkstate">button1</button>
+	<button ng-disabled="checkstate">button1</button>
+	<button ng-disabled="b">button1</button>
+	<button ng-disabled="b">button1</button>
+
+	<br/>
+	<input type="checkbox" ng-model="b">b
+	<input type="checkbox" ng-model="a"> a
+	<input type="checkbox" ng-model="checkstate"> Checkbox
+	<br/>
+	Current Button status: 
+	b: {{b}} <br/>
+	a: {{a}} <br/>
+	checkbox: {{checkstate}}
+</div> -->
+
+<!-- 
+<div ng-app="httpapp">
+	<button ng-show="checked==true">I am visible!</button>
+	<input type="checkbox" ng-model="checked">
+</div> -->
+
+<!-- <div ng-app="httpapp" ng-controller="httpcontroller">
+	<input type="checkbox" ng-click="toggle()"> Checkbox control <br/>
+	<button ng-show="tempVar" ng-click="buttonclick()">Hide & Seek</button>
+	<p ng-show="clicked" ng-click = "toggle()"> button clicked: {{clicked}} </p>
+</div> -->
+
+<div ng-app="httpapp" ng-controller="httpcontroller">
+		Firstname: <input type="text" ng-model="user.firstname">
+		lastname: <input type="text" ng-model="user.lastname">
+		<button ng-click="resetfunction()">Reset button</button>
+
+		<br/>
+		Result block: <br/>
+		User array Details: {{user}} <br/>
+		Master array Details: {{master}}
+</div>
+
+<style type="text/css">
+	table,tr,td{
+		border: 1px grey solid;
+		border-collapse: collapse;
+		padding: 10px;
+	}
+	table tr:nth-child(1){
+		background-color: green;
+		padding: 5px;
+	}
+/*	table,th,td{
+		border:1px grey solid;
+		border-collapse: collapse;
+		padding: 5px;
+	}
+	table tr:nth-child(even){
+		background-color: purple;
+	}
+	table tr:nth-child(odd){
+		background-color: red;
+	}
+	table tr:nth-child(1){
+		background-color: green;
+	}
+*/
+</style>
+
+<script type="text/javascript">
+	var app= angular.module('httpapp',[ ]);
+		app.controller('httpcontroller', function($scope,$http){
+			$http.get("http://www.w3schools.com/angular/customers.php").
+			success(function(response){
+				$scope.urlresult=response.records;
+			});
+			$scope.score=0;
+			$scope.tempVar= false;
+			$scope.toggle= function(){
+				$scope.tempVar = !$scope.tempVar;
+			}
+			$scope.clicked = false;
+			$scope.buttonclick = function(){
+				$scope.clicked = true;
+			}
+			$scope.master= {firstname: "praveen",lastname: "makam"};
+			$scope.resetfunction = function(){
+				$scope.user = angular.copy($scope.master);
+			}
+		});
+	// var app= angular.module('newapp',[ ]).controller('arrayctrl',function($scope){
+	// 	$scope.persons=[
+	// 	{name:'Praven', country:'India'},
+	// 	{name:'Swarna', country:'USA'},
+	// 	{name:'abhi',country:'zimbabwe'},
+	// 	{name:'priya',country:'Africa'},
+	// 	{name:'sagar',country:'pakistan'}
+
+	// 	];
+	// 	$scope.res;
+	// });
+	// var app = angular.module('app1', []);
+	// 	app.controller('app1ctrl',function($scope){
+	// 		$scope.first='praveen';
+	// 		$scope.last='kumar';
+	// 		$scope.fullname= function(){
+	// 			return $scope.first +','+ $scope.last;
+	// 		}
+	// 		$scope.a=10;
+	// 		$scope.b=25;
+	// 		$scope.multiply= function(){
+	// 			return $scope.a * $scope.b;
+	// 		}
+	// 	});
+</script>
+</body>
+</html>

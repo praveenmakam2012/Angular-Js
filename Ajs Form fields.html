@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajs Form fields</title>
+	<Script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body>
+<form name="inputform" ng-app="formapp" ng-controller="formcontroller" novalidate>
+		<p>
+			Firstname: <input type="text" name="firstname" ng-model="firstname" required>
+			<span ng-show="inputform.firstname.$dirty && inputform.firstname.$invalid" style="color:red">
+				<span ng-show="inputform.firstname.$error.required">
+					firstname is required
+				</span>	
+			</span>
+		</p>	
+		<p>
+			Email: <input type="email" ng-model="email" name="email" required>
+			<span style="color:red" ng-show="inputform.email.$dirty && inputform.email.$invalid">
+				<span ng-show="inputform.email.$error.required">
+					Entire correct email
+				</span>
+				<span ng-show="">
+					Incorrect Email address
+				</span>
+			</span>
+		</p>
+		<p>
+			<button type="submit" ng-disabled="inputform.firstname.$dirty && inputform.firstname.$invalid||
+			inputform.email.$dirty && inputform.email.$invalid" ng-click="thanks" >Submit</button>
+		</p>
+		
+</form>
+		<h1 ng-show="showgreetings">{{thanks()}}</h1>
+
+
+
+
+<script type="text/javascript">
+	var app= angular.module('formapp',[]);
+		app.controller('formcontroller', function($scope){
+			$scope.firstname="praveen makam";
+			$scope.email="praveen.makam@citrix.com";
+			$scope.showgreetings=false;
+			$scope.thanks= function(){
+				$scope.submit=true;
+				$scope.showgreetings=true;
+				return "user details have been submitted successfully!" + firstname;
+			}
+			$scope.submit=false;
+
+		});
+</script>
+</body>
+</html>

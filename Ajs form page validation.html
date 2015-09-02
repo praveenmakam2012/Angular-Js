@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajs Form page</title>
+	<Script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body>
+	<form ng-app="formapp" ng-controller="formcontroller" ng-hide="show" novalidate>
+		<span ng-hide="show"> 
+			Firstname: <input type="text" ng-model="firstname" placeholder="first name" >
+		</span>
+		<br/>
+		<span ng-hide="show">
+			Lastname: <input type="text" ng-model="lastname" placeholder="last name" >
+		</span>
+		<br/>
+		<span ng-hide="show">
+			Email: <input type="email" ng-model="email" placeholder="yourname@yourcompany.com" >
+		</span>
+		<br/>
+		<span ng-hide="show">
+			Repeat Email: <input type="email" ng-model="remail" placeholder="repeat above email" >
+		</span>
+		<br/>
+		<button type="submit" ng-click="loginsubmit" ng-hide="show"> Submit</button>
+
+				<!-- <div ng-app="formapp" ng-controller="formcontroller" ng-show="showdiv">
+			Details you entered are as below: <br/>
+			Firstname: {{firstname}}<br/>
+			lastname: {{lastname}}<br/>
+			email: {{email}} <br/>
+
+		</div> -->
+	</form>
+<script type="text/javascript">
+
+
+	var app=angular.module('formapp',[ ]);
+	app.controller('formcontroller',function($scope){
+		$scope.firstname;
+		$scope.lastname;
+		$scope.email;
+		$scope.remail;
+		$scope.showdiv=false;
+		$scope.show=false;
+		$scope.loginsubmit= function(){
+			$scope.show=true;
+			// $scope.showdiv=true;
+		}
+	});
+</script>
+</body>
+</html>

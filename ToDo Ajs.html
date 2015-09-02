@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDo js</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="todoapp" ng-controller="todocontroller" class="container">
+		<h3>To-Do List</h3>
+		<div class="row">
+			<div class="col-sm-9">
+				<input type="text" maxlength="100" minlength="3" ng-model="notemessage">
+			</div>
+			<div class="col-sm-3">
+				<button class="btn btn-primary" ng-click="addnote()"> 
+					<span class="glyphicon glyphicon-save"></span>
+						Add note
+				</button>
+			</div>
+		</div>
+		<br/>
+		<h3> Your notes: </h3> <br/>
+		<div ng-repeat="note in notes">
+			<input type="checkbox" ng-model="note.complete"> <span ng-bind="note.notebody"></span>
+		</div>
+
+
+	</div>
+
+
+
+<script type="text/javascript">
+	var app = angular.module('todoapp',[]);
+		app.controller('todocontroller', function(){
+			$scope.notemessage = '';
+			$scope.notes = [
+				{notebody:'praveen', complete:false}
+			];
+			$scope.addnote= function(){
+				$scope.notes.push(notebody:$scope.notemessage,complete:false);
+				$scope.notemessage='';
+			};
+			$scope.removenote = function(){	
+
+			};
+		});
+</script>
+</body>
+</html>
